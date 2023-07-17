@@ -10,9 +10,9 @@ const InitialState: CounterInitialState = {
 export const counterReducer = (state: CounterInitialState = InitialState, action: ActionsType): CounterInitialState => {
     switch (action.type) {
         case Actions.INCREMENT:
-            return { ...state, count: state.count++ }
+            return { ...state, count: state.count + 1 }
         case Actions.DECREMENT:
-            return { ...state, count: state.count-- }
+            return { ...state, count: state.count - 1 }
         default:
             return state
     }
