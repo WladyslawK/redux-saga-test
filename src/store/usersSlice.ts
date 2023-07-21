@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { ThunkAppDispatchType } from './store';
 
-interface UserState {
+export interface UserState {
     users: UserType[]
 }
 
