@@ -22,9 +22,13 @@ type ActionsType = ReturnType<typeof incrementCounterAC> |
     ReturnType<typeof decrementCounterAC>
 
 export const incrementCounterAC = () => ({ type: Actions.INCREMENT } as const)
+export const asyncIncrementCounterAC = () => ({ type: 'ASYNC_INCREMENT' } as const)
 export const decrementCounterAC = () => ({ type: Actions.DECREMENT } as const)
+export const asyncDecrementCounterAC = () => ({ type: Actions.ASYNC_DECREMENT } as const)
 
-const enum Actions {
+export const enum Actions {
     INCREMENT = 'INCREMENT',
     DECREMENT = 'DECREMENT',
+    ASYNC_INCREMENT = 'ASYNC_INCREMENT',
+    ASYNC_DECREMENT = 'ASYNC_DECREMENT',
 }
