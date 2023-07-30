@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { RootStateType, ThunkAppDispatchType } from "../store/store"
-import { decrementCounterAC, incrementCounterAC } from "../store/counterSlice";
+import { asyncDecrementCounterAC, asyncIncrementCounterAC, decrementCounterAC, incrementCounterAC } from "../store/counterSlice";
 import { UserType, addUserAC, deleteUserAC, loadUsers } from "../store/usersSlice";
 import { useState } from "react";
 
@@ -10,8 +10,8 @@ export const Counter = () => {
     const count = useSelector<RootStateType, number>(state => state.counterReducer.count);
     const users = useSelector<RootStateType, UserType[]>(state => state.userSlice.users);
     const [selectedUser, setSelecteduser] = useState<null | number>(null);
-    const incrementHandler = () => dispatch(incrementCounterAC());
-    const decrementHandler = () => dispatch(decrementCounterAC());
+    const incrementHandler = () => dispatch(asyncIncrementCounterAC());
+    const decrementHandler = () => dispatch(asyncDecrementCounterAC());
     const addUserHandler = (name: string | null) => {
         if (name) {
             const user = {
